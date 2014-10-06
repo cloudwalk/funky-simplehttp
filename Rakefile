@@ -22,7 +22,7 @@ task :build => :check do
   end
 end
 
-desc "Clobber/Clean PAX"
+desc "Clobber/Clean"
 task :clean => :check do
   sh "mkdir -p out"
   sh "rm -f #{SIMPLEHTTP_OUT}"
