@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'simplehttp.rb'
 
 Gem::Specification.new do |spec|
-  spec.name          = "Simple HTTP Gem"
+  spec.name          = "simplehttp"
   spec.version       = SimpleHttp.version
   spec.authors       = ["Thiago Scalone"]
   spec.email         = ["thiago@scalone.com.br"]
