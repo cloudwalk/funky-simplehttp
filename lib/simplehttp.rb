@@ -5,6 +5,10 @@ class SimpleHttp
   DEFAULT_ACCEPT = "*/*"
   SEP = "\r\n"
 
+  def self.version
+    "0.0.1"
+  end
+
   def socket_class_exist?
       c = Module.const_get("TCPSocket")
       c.is_a?(Class)
