@@ -15,7 +15,7 @@ end
 
 desc "Compile simplehttp to mrb"
 task :build => :check do
-  sh "mkdir -p out"
+  sh "mkdir -p #{File.join(SIMPLEHTTP_ROOT, "out")}"
   if ENV["MRBC"]
     sh "#{ENV["MRBC"]} -o #{SIMPLEHTTP_OUT} #{File.join(SIMPLEHTTP_ROOT, "lib", "simplehttp.rb")} "
   else
