@@ -9,6 +9,8 @@ class SimpleHttp
     "0.1.0"
   end
 
+  attr_accessor :socket
+
   def socket_class_exist?
       c = Module.const_get("TCPSocket")
       c.is_a?(Class)
@@ -85,7 +87,7 @@ class SimpleHttp
   def send_request(request_header)
     response_text = ""
     if @use_socket
-      socket = TCPSocket.new(@uri[:address], @uri[:port])
+      @socket ||= TCPSocket.new(@uri[:address], @uri[:port])
       if @uri[:schema] == "https"
         entropy = PolarSSL::Entropy.new
         ctr_drbg = PolarSSL::CtrDrbg.new entropy
