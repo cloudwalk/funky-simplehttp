@@ -86,8 +86,13 @@ class SimpleHttp
 
   def send_request(request_header)
     response_text = ""
-    if @use_socket
-      @socket ||= TCPSocket.new(@uri[:address], @uri[:port])
+    if @socket
+      socket.write(request_header)
+      while (t = socket.read(1024))
+        response_text += t
+      end
+    elsif @use_socket
+      @socket = TCPSocket.new(@uri[:address], @uri[:port])
       if @uri[:schema] == "https"
         entropy = PolarSSL::Entropy.new
         ctr_drbg = PolarSSL::CtrDrbg.new entropy
@@ -116,7 +121,7 @@ class SimpleHttp
         if x == 0
           socket.write(request_header) do |x|
             socket.read_start do |b|
-              response_text += b.to_s 
+              response_text += b.to_s
             end
           end
         else
