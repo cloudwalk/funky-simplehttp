@@ -96,8 +96,12 @@ class SimpleHttp
         break if t.nil?
         response_text << t
       end
-      finish = Fiber.yield false
-      return response_text if finish
+      finish = Fiber.yield(false)
+      if finish
+        puts "Finish? #{finish}"
+        getc
+        return response_text
+      end
     end
     response_text
   end
