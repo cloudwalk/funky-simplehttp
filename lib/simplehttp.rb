@@ -98,8 +98,6 @@ class SimpleHttp
       end
       finish = Fiber.yield(false)
       if finish
-        puts "Finish? #{finish}"
-        getc
         return response_text
       end
     end
