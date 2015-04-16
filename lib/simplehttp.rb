@@ -88,7 +88,7 @@ class SimpleHttp
     response_text = ""
     loop do
       ret = Device::Network.connected?
-      ret2 = socket_tcp.closed?
+      ret2 = @socket_tcp.nil? ? nil : @socket_tcp.closed?
       puts "ret #{ret} #{ret2}"
       return "" unless (ret && ret2)
       if (available = socket.bytes_available) > 0
