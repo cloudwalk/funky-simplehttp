@@ -87,16 +87,14 @@ class SimpleHttp
   def read_fiber
     response_text = ""
     loop do
-      usleep(10_000)
       return "" if (@socket_tcp.nil? || @socket_tcp.closed?)
-      usleep(10_000)
       if (available = socket.bytes_available) > 0
-        usleep(10_000)
         t = socket.read(available)
         break if t.nil?
         response_text << t
       end
-      Fiber.yield false
+      finish = Fiber.yield false
+      return response_text if finish
     end
     response_text
   end
