@@ -9,7 +9,7 @@ class SimpleHttp
     "0.3.1"
   end
 
-  attr_accessor :socket
+  attr_accessor :socket, :support_fiber
 
   def socket_class_exist?
       c = Module.const_get("TCPSocket")
@@ -84,12 +84,39 @@ class SimpleHttp
     SimpleHttpResponse.new(response_text)
   end
 
+  def read_fiber
+    response_text = ""
+    loop do
+      if (available = socket.bytes_available) > 0
+        t = socket.read(available)
+        break if t.nil?
+        response_text << t
+      end
+      Fiber.yield false
+    end
+    response_text
+  end
+
+  def read_normal
+    response_text = ""
+    while (t = socket.read(1024))
+      response_text += t
+    end
+    response_text
+  end
+
+  def support_fiber?
+    @support_fiber
+  end
+
   def send_request(request_header)
     response_text = ""
     if @socket
       socket.write(request_header)
-      while (t = socket.read(1024))
-        response_text += t
+      if support_fiber?
+        response_text = read_fiber
+      else
+        response_text = read_normal
       end
     elsif @use_socket
       @socket = TCPSocket.new(@uri[:address], @uri[:port])
