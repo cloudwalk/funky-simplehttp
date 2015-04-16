@@ -88,8 +88,11 @@ class SimpleHttp
     response_text = ""
     loop do
       return "" if (@socket_tcp.nil? || @socket_tcp.closed?)
+      usleep(10000)
       if (available = socket.bytes_available) > 0
+        usleep(10000)
         t = socket.read(available)
+        usleep(10000)
         break if t.nil?
         response_text << t
       end
