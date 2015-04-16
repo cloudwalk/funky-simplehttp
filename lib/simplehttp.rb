@@ -87,9 +87,7 @@ class SimpleHttp
   def read_fiber
     response_text = ""
     loop do
-      ret = Device::Network.connected?
-      puts "ret #{ret} #{@socket_tcp.closed?}"
-      return "" unless ret
+      return "" if @socket_tcp.closed?
       if (available = socket.bytes_available) > 0
         t = socket.read(available)
         break if t.nil?
