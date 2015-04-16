@@ -9,7 +9,7 @@ class SimpleHttp
     "0.3.1"
   end
 
-  attr_accessor :socket, :support_fiber
+  attr_accessor :socket, :socket_tcp, :support_fiber
 
   def socket_class_exist?
       c = Module.const_get("TCPSocket")
@@ -88,8 +88,9 @@ class SimpleHttp
     response_text = ""
     loop do
       ret = Device::Network.connected?
-      puts "ret #{ret}"
-      return "" unless ret
+      ret2 = socket_tcp.closed?
+      puts "ret #{ret} #{ret2}"
+      return "" unless (ret && ret2)
       if (available = socket.bytes_available) > 0
         t = socket.read(available)
         break if t.nil?
