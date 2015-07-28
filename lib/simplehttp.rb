@@ -6,7 +6,7 @@ class SimpleHttp
   SEP = "\r\n"
 
   def self.version
-    "0.3.1"
+    "0.4.0"
   end
 
   attr_accessor :socket, :socket_tcp, :support_fiber
