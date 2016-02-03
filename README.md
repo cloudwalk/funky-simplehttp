@@ -13,10 +13,10 @@ application using a pure-ruby implementation.
 
 ## Index
 
-- [Index](https://gist.github.com/sadasant/7d5f64c7ece7a3eb2b11#index)
-- [What do I have here?](https://gist.github.com/sadasant/7d5f64c7ece7a3eb2b11#what-do-i-have-here)
-- [How do I use this?](https://gist.github.com/sadasant/7d5f64c7ece7a3eb2b11#how-do-i-use-this)
-- [I would like to contribute](https://gist.github.com/sadasant/7d5f64c7ece7a3eb2b11#i-would-like-to-contribute)
+- [Index](#index)
+- [What do I have here?](#what-do-i-have-here)
+- [How do I use this?](#how-do-i-use-this)
+- [I would like to contribute](#i-would-like-to-contribute)
 
 ## What do I have here?
 
