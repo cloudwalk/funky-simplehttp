@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = "Minimal HTTP implementation"
   spec.homepage      = "http://github.com/cloudwalkio/funky-simplehttp"
   spec.license       = "MIT"
-  spec.files         = `git ls-files -z`.split("\x0") << "out/simplehttp.mrb"
+  spec.files         = `git ls-files -z`.split("\x0") << "out/funky-simplehttp.mrb"
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
