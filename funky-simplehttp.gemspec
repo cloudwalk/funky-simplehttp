@@ -4,15 +4,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'simplehttp.rb'
 
 Gem::Specification.new do |spec|
-  spec.name          = "simplehttp"
+  spec.name          = "funky-simplehttp"
   spec.version       = SimpleHttp.version
   spec.authors       = ["Thiago Scalone"]
   spec.email         = ["thiago@scalone.com.br"]
-  spec.summary       = "CloudWalk POC to load rubygems on mruby"
-  spec.description   = "SimpleHttp POC"
-  spec.homepage      = ""
+  spec.summary       = "Simplehttp"
+  spec.description   = "Minimal HTTP implementation"
+  spec.homepage      = "http://github.com/cloudwalkio/funky-simplehttp"
   spec.license       = "MIT"
-
   spec.files         = `git ls-files -z`.split("\x0") << "out/simplehttp.mrb"
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
