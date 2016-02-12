@@ -2,7 +2,7 @@ require 'rake'
 #require "bundler/gem_tasks"
 
 SIMPLEHTTP_ROOT = File.dirname(File.expand_path(__FILE__))
-SIMPLEHTTP_OUT  = File.join(SIMPLEHTTP_ROOT, "out", "simplehttp.mrb")
+SIMPLEHTTP_OUT  = File.join(SIMPLEHTTP_ROOT, "out", "funky-simplehttp.mrb")
 
 task :default => :build
 
