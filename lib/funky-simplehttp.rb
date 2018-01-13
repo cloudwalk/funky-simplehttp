@@ -11,17 +11,17 @@ class SimpleHttp
 
   attr_accessor :socket, :socket_tcp, :support_fiber
 
-	def socket_class_exist?
-		if Object.const_defined?(:TCPSocket)
-			TCPSocket.is_a? Class
-		end
-	end
+  def socket_class_exist?
+    if Object.const_defined?(:TCPSocket)
+      TCPSocket.is_a? Class
+    end
+  end
 
   def uv_module_exist?
-      c = Module.const_get("UV")
-      c.is_a?(Module)
+    c = Module.const_get("UV")
+    c.is_a?(Module)
   rescue
-      return false
+    return false
   end
 
   def initialize(schema, address, port = nil)
@@ -185,7 +185,7 @@ class SimpleHttp
       header.delete("Body")
     end
     if method == "POST" && (not header.keys.include?("content-length".capitalize))
-        header["Content-Length"] = (body || '').length
+      header["Content-Length"] = (body || '').length
     end
     header.keys.sort.each do |key|
       str += sprintf("%s: %s", key, header[key]) + SEP
