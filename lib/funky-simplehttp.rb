@@ -5,10 +5,6 @@ class SimpleHttp
   DEFAULT_ACCEPT = "*/*"
   SEP = "\r\n"
 
-  def self.version
-    "0.5.0"
-  end
-
   attr_accessor :socket, :socket_tcp, :support_fiber
 
   def socket_class_exist?
