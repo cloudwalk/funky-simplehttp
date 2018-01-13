@@ -11,12 +11,11 @@ class SimpleHttp
 
   attr_accessor :socket, :socket_tcp, :support_fiber
 
-  def socket_class_exist?
-      c = Module.const_get("TCPSocket")
-      c.is_a?(Class)
-  rescue
-      return false
-  end
+	def socket_class_exist?
+		if Object.const_defined?(:TCPSocket)
+			TCPSocket.is_a? Class
+		end
+	end
 
   def uv_module_exist?
       c = Module.const_get("UV")
