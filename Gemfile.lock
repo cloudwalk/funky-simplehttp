@@ -1,17 +1,20 @@
 PATH
   remote: .
   specs:
-    funky-simplehttp (0.4.4)
+    funky-simplehttp (0.5.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    rake (10.4.2)
+    rake (12.3.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.7)
+  bundler
   funky-simplehttp!
-  rake (~> 10.0)
+  rake
+
+BUNDLED WITH
+   1.16.1
