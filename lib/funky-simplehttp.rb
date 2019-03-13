@@ -5,7 +5,7 @@ class SimpleHttp
   DEFAULT_ACCEPT = "*/*"
   SEP = "\r\n"
 
-  attr_accessor :socket, :socket_tcp, :support_fiber
+  attr_accessor :socket, :socket_tcp, :support_fiber, :request_buffer
 
   def socket_class_exist?
     if Object.const_defined?(:TCPSocket)
@@ -74,8 +74,8 @@ class SimpleHttp
     elsif @uri[:path][0] != "/"
       @uri[:path] = "/" + @uri[:path]
     end
-    request_header = create_request_header(method.upcase.to_s, req)
-    response_text = send_request(request_header)
+    request_buffer = create_request_header(method.upcase.to_s, req)
+    response_text = send_request(request_buffer)
     SimpleHttpResponse.new(response_text)
   end
 
