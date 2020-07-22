@@ -1,5 +1,5 @@
 class SimpleHttp
   def self.version
-    "0.6.0"
+    "1.0.0"
   end
 end

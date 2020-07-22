@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    funky-simplehttp (0.6.0)
+    funky-simplehttp (1.0.0)
 
 GEM
   remote: https://rubygems.org/
