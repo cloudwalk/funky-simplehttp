@@ -22,7 +22,7 @@ GEM
     io-like (0.3.0)
     posxml_parser (2.15.0)
       funky-emv (~> 0.3)
-    rake (12.3.2)
+    rake (13.0.1)
 
 PLATFORMS
   ruby
